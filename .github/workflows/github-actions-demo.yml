@@ -20,5 +20,7 @@ jobs:
       - name: Get IP address
         run: |
           echo "Current IP address is $(curl -s https://api.ipify.org)"
+      - name: Remove proxy settings
+        run: sudo rm /etc/environment && sudo apt-get remove -y privoxy
       - name: Run video() API
         run: python app.py

@@ -13,7 +13,7 @@ def video():
     video_path = os.path.join(video_dir, video_file)
     with open(video_path, 'rb') as f:
         video_data = f.read()
-    base64_data = base64.b64encode(video_data)
+    base64_data = base64.b64encode(video_data).decode('utf-8')
     return {'name': video_file, 'data': base64_data}
 
 if __name__ == '__main__':

@@ -18,6 +18,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Get IP address
-        run: echo ${{ steps.deploy.outputs.IP_ADDRESS }}
+        run: |
+          echo "Current IP address is $(curl -s https://api.ipify.org)"
       - name: Run video() API
         run: python app.py
